@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mark Calculator</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #0f0f0f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: #00ffe7;
+        }
+
+        .box {
+            border: 2px solid #00ffe7;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px #00ffe7;
+            width: 320px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ffe7;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            background: black;
+            border: 1px solid #00ffe7;
+            color: #00ffe7;
+            border-radius: 8px;
+            outline: none;
+            text-align: center;
+        }
+
+        input::placeholder {
+            color: #00ffe7;
+            opacity: 0.5;
+        }
+
+        button {
+            width: 95%;
+            padding: 12px;
+            margin-top: 10px;
+            background: transparent;
+            border: 2px solid #00ffe7;
+            color: #00ffe7;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #00ffe7;
+            color: black;
+            box-shadow: 0 0 15px #00ffe7;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            text-shadow: 0 0 5px #00ffe7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>Mark Calculator</h1>
+
+        <input type="number" id="m1" placeholder="Subject 1">
+        <input type="number" id="m2" placeholder="Subject 2">
+        <input type="number" id="m3" placeholder="Subject 3">
+
+        <button onclick="calculate()">CALCULATE</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            let m1 = Number(document.getElementById("m1").value);
+            let m2 = Number(document.getElementById("m2").value);
+            let m3 = Number(document.getElementById("m3").value);
+
+            if (!m1 || !m2 || !m3) {
+                document.getElementById("output").innerHTML = "Enter valid marks 😑";
+                return;
+            }
+
+            let total = m1 + m2 + m3;
+            let average = total / 3;
+
+            document.getElementById("output").innerHTML =
+                "Total = " + total + "<br>Average = " + average.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>
